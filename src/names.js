@@ -1,4 +1,4 @@
-export default [
+const names = [
   "David",
   "Sarah",
   "David",
@@ -32,3 +32,5 @@ export default [
   "Robert",
   "Patricia"
 ];
+
+export default names;
