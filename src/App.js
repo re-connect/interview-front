@@ -1,13 +1,15 @@
 import React from "react";
 import "./App.css";
-import axios from 'axios';
 import names from "./names";
+//import axios from 'axios';
 
 const apiEndpoint = "https://avatars.dicebear.com/v2/avataaars/";
 const apiOptions = "options[mood][]=happy";
-const backendUrl = "https://localhost:8000";
-const beneficiariesEndpoint = `${backendUrl}/api/beneficiaries?format=json`;
-const loginEndpoint = `${backendUrl}/authentication_token`;
+
+// Define here the constants you need
+// const backendUrl = "http://localhost:8000"; (or https maybee)
+// const beneficiariesEndpoint = `${backendUrl}/...`;
+// const loginEndpoint = `${backendUrl}/...`;
 
 const getAvatar = name => `${apiEndpoint}${name}.svg?${apiOptions}`;
 
@@ -16,12 +18,19 @@ function App() {
         []
     );
     const fetchBeneficiaries = async () => {
-        const loginResponse = await axios.post(loginEndpoint, {
-            email: 'tester@gmail.com', password: 'I@mTheT€ster'
-        });
-        axios.defaults.headers.common['Authorization'] = `Bearer ${loginResponse.data.token}`;
-        const response = await axios.get(beneficiariesEndpoint)
-        setRegisteredBeneficiaries(response.data['hydra:member']);
+        // Don't forget to import Axios, uncomment the line at the top of the file
+
+        // Perform some login call
+        // const loginResponse = await axios.post(...);
+
+        // Authenticate your next request, or next requests
+        // axios....
+
+        // Get beneficiaries list from the backend
+        // const response = await axios.get(...)
+
+        // Set the response data in the local state
+        // setRegisteredBeneficiaries(...);
     };
 
     React.useEffect(() => {
