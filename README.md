@@ -1,12 +1,14 @@
-# Test connaissances web basiques
+# Basic web skills test React frontend
 
-## Contexte et stack technique
+## Prerequisites
 
-- Besoin de Node.js
-- Besoin d'un package-manager `npm` ou `yarn`
+- Node.js
+- A package-manager `npm` or `yarn`
 
-## Mise en place du projet
+## Setup
 
-- Cloner le repository `git clone git@github.com:re-connect/interview-front.git`
-- `cd interview-front && cd client && yarn`
-- `yarn start`
+```bash
+git clone git@github.com:re-connect/interview-front.git
+cd interview-front && cd client && yarn
+yarn start
+```
