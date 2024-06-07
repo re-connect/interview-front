@@ -1,36 +1,34 @@
 import React from "react";
 import "./App.css";
 import names from "./names";
-//import axios from 'axios';
+import axios from 'axios';
 
-const apiEndpoint = "https://avatars.dicebear.com/v2/avataaars/";
-const apiOptions = "options[mood][]=happy";
+const apiEndpoint = "https://api.dicebear.com/8.x/avataaars/svg";
 
-// Define here the constants you need
-// const backendUrl = "http://localhost:8000"; (or https maybee)
-// const beneficiariesEndpoint = `${backendUrl}/...`;
-// const loginEndpoint = `${backendUrl}/...`;
+const backendUrl = "http://localhost:8000"; 
+const loginEndpoint = `${backendUrl}/login`;
+const beneficiariesEndpoint = `${backendUrl}/beneficiaries`;
 
-const getAvatar = name => `${apiEndpoint}${name}.svg?${apiOptions}`;
+const getAvatar = name => `${apiEndpoint}?seed=${name}`;
 
 function App() {
-    const [registeredBeneficiaries, setRegisteredBeneficiaries] = React.useState(
-        []
-    );
+    const [registeredBeneficiaries, setRegisteredBeneficiaries] = React.useState([]);
+
     const fetchBeneficiaries = async () => {
-        // Don't forget to import Axios, uncomment the line at the top of the file
+        // Perform login call
+        const loginResponse = await axios.post(loginEndpoint, {
+            email: 'tester@gmail.com', // replace with actual username
+            password: 'I@mTheT€ster' // replace with actual password
+        });
 
-        // Perform some login call
-        // const loginResponse = await axios.post(...);
-
-        // Authenticate your next request, or next requests
-        // axios....
+        // Authenticate your next request
+        axios.defaults.headers.common['Authorization'] = `Bearer ${loginResponse.data.token}`;
 
         // Get beneficiaries list from the backend
-        // const response = await axios.get(...)
+        const response = await axios.get(beneficiariesEndpoint);
 
         // Set the response data in the local state
-        // setRegisteredBeneficiaries(...);
+        setRegisteredBeneficiaries(response.data);
     };
 
     React.useEffect(() => {
