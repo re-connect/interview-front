@@ -8,7 +8,7 @@
 ## Setup
 
 ```bash
-git clone git@github.com:re-connect/interview-front.git
-cd interview-front && cd client && yarn
+git clone git@github.com:re-connect/interview-react.git
+cd interview-front && yarn
 yarn start
 ```
