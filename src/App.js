@@ -2,16 +2,15 @@ import React from "react";
 import "./App.css";
 import names from "./names";
 //import axios from 'axios';
-
-const apiEndpoint = "https://avatars.dicebear.com/v2/avataaars/";
-const apiOptions = "options[mood][]=happy";
+const apiEndpoint = "https://api.dicebear.com/8.x/avataaars/svg";
+const apiOptions = "&backgroundType=gradientLinear&mouth=smile";
 
 // Define here the constants you need
 // const backendUrl = "http://localhost:8000"; (or https maybee)
 // const beneficiariesEndpoint = `${backendUrl}/...`;
 // const loginEndpoint = `${backendUrl}/...`;
 
-const getAvatar = name => `${apiEndpoint}${name}.svg?${apiOptions}`;
+const getAvatar = name => `${apiEndpoint}?seed=${name}.svg${apiOptions}`;
 
 function App() {
     const [registeredBeneficiaries, setRegisteredBeneficiaries] = React.useState(
