@@ -9,6 +9,6 @@
 
 ```bash
 git clone git@github.com:re-connect/interview-front.git
-cd interview-front && cd client && yarn
+cd interview-front && yarn
 yarn start
 ```
